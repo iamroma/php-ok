@@ -3,7 +3,7 @@
 class Framework {
 
     public static function run() {
-        echo "Framework running..";
+        // echo "Framework running..";
         self::init();
         self::autoload();
         self::dispatch();
@@ -47,6 +47,14 @@ class Framework {
         define("CUR_VIEW_PATH", VIEW_PATH . PLATFORM . DS);
 
         // echo CUR_CONTROLLER_PATH;
+
+        //载入配置文件
+        $GLOBALS['config'] = include CONFIG_PATH . "Config.php";
+
+        //强制载入核心类
+        include CORE_PATH . "Model.class.php";
+        include DB_PATH . "Mysql.class.php";
+        include CORE_PATH . "CoreController.class.php";
         
     }
 
