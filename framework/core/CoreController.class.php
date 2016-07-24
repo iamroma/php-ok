@@ -4,7 +4,7 @@
  */
 class CoreController {
     //跳转方法
-    public function jump($url, $message, $wait) {
+    public function jump($url, $message, $wait = 0) {
         if ($wait == 0) {
             header("Location: $url");
         } else {
